@@ -1,0 +1,196 @@
+
+body {
+    background-color: rgb(7, 0, 18);
+}
+
+footer {
+    background: #d2aab5;
+    min-height: 80px;
+}
+
+h1 {
+    color: white;
+    font-family: fansong;
+}
+
+h2 {
+    color: white;
+    font-family: fansong;
+}
+
+span {
+    color: white;
+    font-family: fansong;
+}
+
+p {
+    color: white;
+    font-family: fansong;
+}
+
+hr {
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.main {
+    min-height: 645px;
+}
+
+
+
+/*Header Block*/
+.navbar {
+    background-color: #d2aab5;
+    max-height: 150px;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 1% 0;
+}
+
+.navbar-logo {
+    background-image: rgb(185, 126, 255);
+}
+
+.navbar-title {
+    font-family: 'Ultra', serif;
+    font-size: 50px;
+    margin-left: 4%;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+
+
+/*Article List view*/
+.title-encyclopedia {
+    font-size: 70px;
+}
+
+.header-container {
+    background-color: #08a04b;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+
+.header-list {
+    padding-top: 14px;
+    font-family: 'Ultra', serif;
+}
+
+.article-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.update-button {
+    background-color: #0778ab;
+    text-decoration: none;
+    font-family: 'Ultra', serif;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.button-link {
+    color: #070012;
+}
+
+.delete-button {
+    background-color: #760081;
+    text-decoration: none;
+    color: #070012;
+    font-family: 'Ultra', serif;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/*Article*/
+.title-article {
+    font-family: 'Ultra', serif;
+    font-size: 45px;
+    font-weight: normal;
+    color: white;
+    margin: 0 0 0 3%;
+}
+
+.title-article-container {
+    background-color: #08a04b;
+    margin-bottom: 1%;
+}
+
+/*Article Form*/
+.form {
+    text-align: -webkit-center;
+}
+
+.field {
+    background-color: #ececec;
+    border-radius: 10px;
+    text-decoration: #b97eff;
+    font-family: fansong;
+    padding: 1%;
+    margin: 1% 0;
+    width: 50%;
+}
+
+.field-content {
+    height: 20em;
+    width: 80%;
+}
+
+.save-button {
+    background-color: #BAC718;
+    text-decoration: #070012;
+    font-family: 'Ultra', serif;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.save-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.color {
+    color: rgb(7, 0, 18) #070012; /*darkblueblack*/
+    color: #FF2E93; /*lightfushia*/
+    color: rgb(190, 0, 210) #760081; /*fushia*/
+    color: rgb(210, 170, 181) #d2aab5; /*lightpink*/
+    color: rgb(185, 126, 255) #b97eff; /*lightpurple*/
+    color: #7532FA; /*ultraviolet*/
+    color: rgb(232, 126, 1) #e87e01; /*orange*/
+    color: rgb(186, 199, 24) #bac718; /*anis*/
+    color: rgb(8, 160, 75) #08a04b; /*green*/
+    color: rgb(7, 120, 171) #0778ab; /*blue*/
+}
+
+.font {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Quattrocento', serif;
+    font-family: 'Ultra', serif;
+    font-family: 'Yeseva One', cursive;
+}

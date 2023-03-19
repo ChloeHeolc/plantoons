@@ -1,0 +1,30 @@
+{% extends "block.html.twig" %}
+
+{% block main %}
+
+    <div class="title-article-container">
+    <h1 class="title-article">Nouvelle famille</h1>
+    </div>
+
+    <div class="form">
+        
+        {{form_start(categoryForm)}}
+
+        <div class="">
+            {{form_widget(categoryForm.name, {'attr' : {'class' : 'input field', 'placeholder' : 'Nom de la famille'} } ) }}
+        </div>
+
+        <div class="">
+            {{form_widget(categoryForm.description, {'attr' : {'class' : 'input field', 'placeholder' : 'Description'} } ) }}
+        </div>
+
+        <div class="save-button-container">
+            {{form_widget(categoryForm.Enregistrer, {'attr' : {'class' : 'save-button'} } ) }}
+        </div>
+        
+        {{form_end(categoryForm)}}
+
+    </div>
+
+{% endblock %}
+

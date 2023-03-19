@@ -1,0 +1,40 @@
+{% extends "block.html.twig" %}
+
+    {% block main %}
+
+        <h1 class="title-encyclopedia">L'Encyclopédie</h1>
+            <div class="header-container">
+                <p class="header-list">Nom commun</p>
+                <p class="header-list">Nom latin</p>
+                <p class="header-list">Famille</p>
+            </div>
+
+        <div>
+        {% for article in articles %}
+                <ul>
+                    <li>
+                        <div class="article-list">
+                            <h2>
+                                <a href="{{ path('article_show', {'id' : article.id}) }}"
+                                    class="article-link"> {{article.title}} </a>
+                            </h2>
+                            <h2>{{article.namelatin}}</h2>
+                            <h2>{{article.category.name}}</h2>
+                            
+                            <div>
+                                <button class="update-button">
+                                    <a href="{{ path('update_article', {'id' : article.id}) }}" class="button-link"> Modifier </a>
+                                </button>
+                                <button class="delete-button">
+                                    <a href="{{ path('delete_article', {'id' : article.id}) }}" class="button-link" onclick="return(confirm('Vous êtes sur le point de supprimer cet article. En êtes vous certain ?'))"> Supprimer </a>
+                                </button>
+                            </div>
+                        </div>
+                        <hr>
+                    </li>
+                </ul>
+        {% endfor %}
+        </div>
+
+    {% endblock %}
+

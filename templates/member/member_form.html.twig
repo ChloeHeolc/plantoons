@@ -1,0 +1,30 @@
+{% extends "block.html.twig" %}
+
+{% block main %}
+
+    <div class="title-article-container">
+    <h1 class="title-article">Nouveau membre</h1>
+    </div>
+
+    <div class="form">
+        
+        {{form_start(memberForm)}}
+
+        <div class="">
+            {{form_widget(memberForm.username, {'attr' : {'class' : 'input field', 'placeholder' : 'Nom du membre'} } ) }}
+        </div>
+
+        <div class="">
+            {{form_widget(memberForm.email, {'attr' : {'class' : 'input field', 'placeholder' : 'Email'} } ) }}
+        </div>
+
+        <div class="save-button-container">
+            {{form_widget(memberForm.Enregistrer, {'attr' : {'class' : 'save-button'} } ) }}
+        </div>
+        
+        {{form_end(memberForm)}}
+
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "block.html.twig" %}
+
+    {% block main %}
+
+        <div>
+        {% for member in members %}
+                <ul>
+                    <li>
+                        <div class="article-list">
+                            <h2>
+                                <a href="{{ path('member_show', {'id' : member.id}) }}"
+                                    class="article-link"> {{member.username}} </a>
+                            </h2>
+                            <h2>{{member.email}}</h2>
+                            
+                            <div>
+                                <button class="update-button">
+                                    <a href="{{ path('update_member', {'id' : member.id}) }}" class="button-link"> Modifier </a>
+                                </button>
+                                <button class="delete-button">
+                                    <a href="{{ path('delete_member', {'id' : member.id}) }}" class="button-link" onclick="return(confirm('Vous êtes sur le point de supprimer cet article. En êtes vous certain ?'))"> Supprimer </a>
+                                </button>
+                            </div>
+                        </div>
+                        <hr>
+                    </li>
+                </ul>
+        {% endfor %}
+        </div>
+
+    {% endblock %}
+

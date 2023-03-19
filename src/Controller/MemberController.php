@@ -6,7 +6,7 @@ use App\Entity\Member;
 use App\Form\MemberType;
 use App\Repository\MemberRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,22 +54,26 @@ class MemberController extends AbstractController
         $memberForm->handleRequest($request);
 
         if ($memberForm->isSubmitted() && $memberForm->isValid()) {
+
             $entityManagerInterface->persist($member);
             $entityManagerInterface->flush();
 
             return $this->redirectToRoute("members_list");
         }
-        return $this->redirectToRoute("member/member_form.html.twig", ['memberForm' => $memberForm->createView()]);
+        return $this->render("member/member_form.html.twig", ['memberForm' => $memberForm->createView()]);
     }
 
     //Create new member
     /**
-     * Route("create/member", name="create_member")
+     * @Route("create/member", name="create_member")
      */
     public function createMember(EntityManagerInterface $entityManagerInterface, Request $request) {
+
         $member = new Member();
 
         $memberForm = $this->createForm(MemberType::class, $member);
+
+        $memberForm->handleRequest($request);
 
         if ($memberForm->isSubmitted() && $memberForm->isValid()) {
             $entityManagerInterface->persist($member);

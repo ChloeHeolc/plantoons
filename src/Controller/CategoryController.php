@@ -3,13 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
 
 class CategoryController extends AbstractController
 {
@@ -68,6 +68,7 @@ class CategoryController extends AbstractController
      * @Route("create/category", name="create_category")
      */
     public function createCategory(EntityManagerInterface $entityManagerInterface, Request $request) {
+
         $category = new Category();
 
         $categoryForm = $this->createForm(CategoryType::class, $category);

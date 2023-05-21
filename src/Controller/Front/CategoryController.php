@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
@@ -14,39 +14,39 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category", name="app_category")
+     * @Route("front/category", name="front_app_category")
      */
     public function index(): Response
     {
-        return $this->render('category/index.html.twig', [
+        return $this->render('front/category/index.html.twig', [
             'controller_name' => 'CategoryController',
         ]);
     }
 
     //Categories List
     /**
-     * @Route("/categories", name="categories_list")
+     * @Route("front/categories", name="front_categories_list")
      */
     public function listCategories(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
 
-        return $this->render("category/categories_list.html.twig", ['categories' => $categories]);
+        return $this->render("front/category/categories_list.html.twig", ['categories' => $categories]);
     }
 
     //View details of a category
     /**
-     * @Route("category/{id}", name="category_show")
+     * @Route("front/category/{id}", name="front_category_show")
      */
     public function showCategory($id, CategoryRepository $categoryRepository) {
         $category = $categoryRepository->find($id);
 
-        return $this->render("category/category_show.html.twig", ['category' => $category]);
+        return $this->render("front/category/category_show.html.twig", ['category' => $category]);
     }
 
     //Edit detail of a category
     /**
-     * @Route("update/category/{id}", name="update_category")
+     * @Route("front/update/category/{id}", name="front_update_category")
      */
     public function updateCategory($id, CategoryRepository $categoryRepository, EntityManagerInterface $entityManagerInterface, Request $request) {
         $category = $categoryRepository->find($id);
@@ -58,14 +58,14 @@ class CategoryController extends AbstractController
             $entityManagerInterface->persist($category);
             $entityManagerInterface->flush();
 
-            return $this->redirectToRoute("categories_list");
+            return $this->redirectToRoute("front_categories_list");
         }
-        return $this->redirectToRoute("category/category_form.html.twig", ['categoryForm' => $categoryForm->createView()]);
+        return $this->redirectToRoute("front/category/category_form.html.twig", ['categoryForm' => $categoryForm->createView()]);
     }
 
     //Create new category
     /**
-     * @Route("create/category", name="create_category")
+     * @Route("front/create/category", name="front_create_category")
      */
     public function createCategory(EntityManagerInterface $entityManagerInterface, Request $request) {
 
@@ -79,14 +79,14 @@ class CategoryController extends AbstractController
             $entityManagerInterface->persist($category);
             $entityManagerInterface->flush();
 
-            return $this->redirectToRoute("categories_list");
+            return $this->redirectToRoute("front_categories_list");
         }
-        return $this->render("category/category_form.html.twig", ['categoryForm' => $categoryForm->createView()]);
+        return $this->render("front/category/category_form.html.twig", ['categoryForm' => $categoryForm->createView()]);
     }
 
     //Delete a category
     /**
-     * @Route("delete/category/{id}", name="delete_category")
+     * @Route("front/delete/category/{id}", name="front_delete_category")
      */
     public function deleteCategory($id, CategoryRepository $categoryRepository, EntityManagerInterface $entityManagerInterface) {
         $category = $categoryRepository->find($id);
@@ -94,6 +94,6 @@ class CategoryController extends AbstractController
         $entityManagerInterface->remove($category);
         $entityManagerInterface->flush();
 
-        return $this->redirectToRoute("category/categories_list");
+        return $this->redirectToRoute("front/category/categories_list");
     }
 }

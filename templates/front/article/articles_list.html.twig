@@ -15,7 +15,7 @@
                     <li>
                         <div class="article-list">
                             <h2>
-                                <a href="{{ path('article_show', {'id' : article.id}) }}"
+                                <a href="{{ path('front_article_show', {'id' : article.id}) }}"
                                     class="article-link"> {{article.title}} </a>
                             </h2>
                             <h2>{{article.namelatin}}</h2>
@@ -23,10 +23,10 @@
                             
                             <div>
                                 <button class="update-button">
-                                    <a href="{{ path('update_article', {'id' : article.id}) }}" class="button-link"> Modifier </a>
+                                    <a href="{{ path('front_update_article', {'id' : article.id}) }}" class="button-link"> Modifier </a>
                                 </button>
                                 <button class="delete-button">
-                                    <a href="{{ path('delete_article', {'id' : article.id}) }}" class="button-link" onclick="return(confirm('Vous êtes sur le point de supprimer cet article. En êtes vous certain ?'))"> Supprimer </a>
+                                    <a href="{{ path('front_delete_article', {'id' : article.id}) }}" class="button-link" onclick="return(confirm('Vous êtes sur le point de supprimer cet article. En êtes vous certain ?'))"> Supprimer </a>
                                 </button>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
 
         <div>
             <button class="create-button">
-                <a href="{{ path('create_article') }}">+ Créer un nouvel article</a>
+                <a href="{{ path('front_create_article') }}">+ Créer un nouvel article</a>
             </button>
         </div>
     {% endblock %}

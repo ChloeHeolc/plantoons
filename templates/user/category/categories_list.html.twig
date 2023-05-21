@@ -14,17 +14,17 @@
                     <li>
                         <div class="article-list">
                             <h2>
-                                <a href="{{ path('category_show', {'id' : category.id}) }}"
+                                <a href="{{ path('user_category_show', {'id' : category.id}) }}"
                                     class="article-link"> {{category.name}} </a>
                             </h2>
                             <h2>Courte description</h2>
                             
                             <div>
                                 <button class="update-button">
-                                    <a href="{{ path('update_category', {'id' : category.id}) }}" class="button-link"> Modifier </a>
+                                    <a href="{{ path('user_update_category', {'id' : category.id}) }}" class="button-link"> Modifier </a>
                                 </button>
                                 <button class="delete-button">
-                                    <a href="{{ path('delete_category', {'id' : category.id}) }}" class="button-link" onclick="return(confirm('Vous êtes sur le point de supprimer cet article. En êtes vous certain ?'))"> Supprimer </a>
+                                    <a href="{{ path('user_delete_category', {'id' : category.id}) }}" class="button-link" onclick="return(confirm('Vous êtes sur le point de supprimer cet article. En êtes vous certain ?'))"> Supprimer </a>
                                 </button>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
 
         <div>
             <button class="create-button">
-                <a href="{{ path('create_category') }}">+ Ajouter une catégorie</a>
+                <a href="{{ path('user_create_category') }}">+ Ajouter une catégorie</a>
             </button>
         </div>
 

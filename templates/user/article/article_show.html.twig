@@ -1,0 +1,17 @@
+{% extends "block.html.twig" %}
+
+{% block main %}
+
+    <div class="title-article-container">
+        <h3 class="title-article">{{ article.title }}</h3>
+    </div>
+
+    <div>
+        <h2>{{ article.namelatin }}</h2>
+        <h2>{{ article.category.name }}</h2>
+    </div>
+
+    <p>{{ article.content }}</p>
+    
+
+{% endblock %}

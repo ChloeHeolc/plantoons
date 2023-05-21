@@ -24,17 +24,17 @@
 
                 <div class="navbar-container">
                     <div class="navbar-title-content">
-                        <a href="{{ path('articles_list') }}"><img src="{{ asset('logos/logo-plantoons5.png')}}" alt="80" width="80" height=""></a>
-                        <a class="navbar-title" aria-current="page" href="{{ path('articles_list') }}">Plantoons</a>
+                        <a href="{{ path('front_articles_list') }}"><img src="{{ asset('logos/logo-plantoons5.png')}}" alt="80" width="80" height=""></a>
+                        <a class="navbar-title" aria-current="page" href="{{ path('front_articles_list') }}">Plantoons</a>
                     </div>
 
                     <div class="dropdown">
                         <button class="dropbtn">Menu</button>
                         <div class="dropdown-content">
                         <a href="{{ path('home') }}">Accueil</a>
-                        <a href="{{ path('articles_list') }}">Liste des articles</a>
-                        <a href="{{ path('categories_list') }}">Liste des familles</a>
-                        <a href="{{ path('members_list') }}">Liste des membres</a>
+                        <a href="{{ path('front_articles_list') }}">Liste des articles</a>
+                        <a href="{{ path('front_categories_list') }}">Liste des familles</a>
+                        <a href="{{ path('user_members_list') }}">Liste des membres</a>
                         </div>
                     </div>
                 </div>

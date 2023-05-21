@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Front;
 
 use App\Entity\Article;
 use App\Form\ArticleType;
@@ -14,37 +14,37 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/article", name="app_article")
+     * @Route("front/article", name="front_app_article")
      */
     public function index(): Response
     {
-        return $this->render('article/index.html.twig', [
+        return $this->render('front/index.html.twig', [
             'controller_name' => 'ArticleController',
         ]);
     }
 
     /**
-     * @Route("/articles", name="articles_list")
+     * @Route("front/articles", name="front_articles_list")
      */
     public function articleList(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAll();
 
-        return $this->render("article/articles_list.html.twig", ['articles' => $articles]);
+        return $this->render("front/articles_list.html.twig", ['articles' => $articles]);
     }
 
     /**
-     * @Route("article/{id}", name="article_show")
+     * @Route("front/article/{id}", name="front_article_show")
      */
     public function showArticle($id, ArticleRepository $articleRepository)
     {
         $article = $articleRepository->find($id);
 
-        return $this->render("article/article_show.html.twig", ['article' => $article]);
+        return $this->render("front/article/article_show.html.twig", ['article' => $article]);
     }
 
     /**
-     * @Route("update/article/{id}", name="update_article")
+     * @Route("front/update/article/{id}", name="front_update_article")
      */
     public function updateArticle($id, ArticleRepository $articleRepository, EntityManagerInterface $entityManagerInterface, Request $request)
     {
@@ -58,14 +58,14 @@ class ArticleController extends AbstractController
             $entityManagerInterface->persist($article);
             $entityManagerInterface->flush();
             
-            return $this->redirectToRoute("articles_list");
+            return $this->redirectToRoute("front_articles_list");
         }
-        return $this->render("article/article_form.html.twig", ['articleForm' => $articleForm->createView()]);
+        return $this->render("front/article/article_form.html.twig", ['articleForm' => $articleForm->createView()]);
     }
 
     //Création d'un nouvel article
         /**
-     * @Route("create/article", name="create_article")
+     * @Route("front/create/article", name="front_create_article")
      */
     public function createArticle(EntityManagerInterface $entityManagerInterface, Request $request)
     {
@@ -79,13 +79,13 @@ class ArticleController extends AbstractController
             $entityManagerInterface->persist($article);
             $entityManagerInterface->flush();
         
-            return $this->redirectToRoute("articles_list");
+            return $this->redirectToRoute("front_articles_list");
         }
-        return $this->render("article/article_form.html.twig", ['articleForm' => $articleForm->createView()]);
+        return $this->render("front/article/article_form.html.twig", ['articleForm' => $articleForm->createView()]);
     }
 
     /**
-     * @Route("delete/article/{id}", name="delete_article")
+     * @Route("front/delete/article/{id}", name="front_delete_article")
      */
     public function deleteArticle($id, ArticleRepository $articleRepository, EntityManagerInterface $entityManagerInterface)
     {
@@ -94,7 +94,7 @@ class ArticleController extends AbstractController
         $entityManagerInterface->remove($article);
         $entityManagerInterface->flush();
 
-        return $this->redirectToRoute("article/articles_list");
+        return $this->redirectToRoute("front/article/articles_list");
     }
 
 }

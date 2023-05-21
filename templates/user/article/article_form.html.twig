@@ -1,0 +1,43 @@
+{% extends "block.html.twig" %}
+
+{% block main %}
+
+    <div class="title-article-container">
+    <h1 class="title-article">Nouvel article</h1>
+    </div>
+
+    <div class="form">
+        
+        {{form_start(articleForm)}}
+
+        <div class="">
+            {{form_widget(articleForm.title, {'attr' : {'class' : 'input field', 'placeholder' : 'Titre de l\'article'} } ) }}
+        </div>
+
+        <div class="">
+            {{form_widget(articleForm.namelatin, {'attr' : {'class' : 'input field', 'placeholder' : 'Nom latin'} } ) }}
+        </div>
+
+        <div class="">
+            {{form_widget(articleForm.category, {'attr' : {'class' : 'input field', 'placeholder' : 'Famille' } } ) }}
+        </div>
+
+        <div class="">
+            {{form_widget(articleForm.content, {'attr' : {'class' : 'input field field-content', 'placeholder' : 'Contenu de l\'article' } } ) }}
+        </div>
+
+        <div class="">
+            {{form_widget(articleForm.creationdate, {'attr' : {'class' : 'datetime' } } ) }}
+        </div>
+
+
+        <div class="save-button-container">
+            {{form_widget(articleForm.Enregistrer, {'attr' : {'class' : 'save-button'} } ) }}
+        </div>
+        
+        {{form_end(articleForm)}}
+
+    </div>
+
+{% endblock %}
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Entity\Member;
 use App\Form\MemberType;
@@ -14,38 +14,38 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class MemberController extends AbstractController
 {
     /**
-     * @Route("/member", name="app_member")
+     * @Route("user/member", name="user_app_member")
      */
     public function index(): Response
     {
-        return $this->render('member/index.html.twig', [
+        return $this->render('user/member/index.html.twig', [
             'controller_name' => 'MemberController',
         ]);
     }
 
     //Members List
     /**
-     * @Route("members", name="members_list")
+     * @Route("user/members", name="user_members_list")
      */
     public function listMembers(MemberRepository $memberRepository): Response {
         $members = $memberRepository->findAll();
 
-        return $this->render("member/members_list.html.twig", ['members' => $members]);
+        return $this->render("user/member/members_list.html.twig", ['members' => $members]);
     }
 
     //View details member
     /**
-     * @Route("member/{id}", name="member_show")
+     * @Route("user/member/{id}", name="user_member_show")
      */
     public function showMember($id, MemberRepository $memberRepository) {
         $member = $memberRepository->find($id);
 
-        return $this->render("member/member_show.html.twig", ['member' => $member]);
+        return $this->render("user/member/member_show.html.twig", ['member' => $member]);
     }
 
     //Edit detail member
     /**
-     * @Route("update/member/{id}", name="update_member")
+     * @Route("user/update/member/{id}", name="user_update_member")
      */
     public function updateMember($id, MemberRepository $memberRepository, EntityManagerInterface $entityManagerInterface, Request $request) {
         $member = $memberRepository->find($id);
@@ -58,14 +58,14 @@ class MemberController extends AbstractController
             $entityManagerInterface->persist($member);
             $entityManagerInterface->flush();
 
-            return $this->redirectToRoute("members_list");
+            return $this->redirectToRoute("user_members_list");
         }
-        return $this->render("member/member_form.html.twig", ['memberForm' => $memberForm->createView()]);
+        return $this->render("user/member/member_form.html.twig", ['memberForm' => $memberForm->createView()]);
     }
 
     //Create new member
     /**
-     * @Route("create/member", name="create_member")
+     * @Route("user/create/member", name="user_create_member")
      */
     public function createMember(EntityManagerInterface $entityManagerInterface, Request $request) {
 
@@ -79,14 +79,14 @@ class MemberController extends AbstractController
             $entityManagerInterface->persist($member);
             $entityManagerInterface->flush();
 
-            return $this->redirectToRoute("members_list");
+            return $this->redirectToRoute("user_members_list");
         }
-        return $this->render("member/member_form.html.twig", ['memberForm' => $memberForm->createView()]);
+        return $this->render("user/member/member_form.html.twig", ['memberForm' => $memberForm->createView()]);
     }
 
     //Delete member
     /**
-     * @Route("delete/member/{id}", name="delete_member")
+     * @Route("user/delete/member/{id}", name="user_delete_member")
      */
     public function deleteMember($id, MemberRepository $memberRepository, EntityManagerInterface $entityManagerInterface) {
         $member = $memberRepository->find($id);
@@ -94,6 +94,6 @@ class MemberController extends AbstractController
         $entityManagerInterface->remove($member);
         $entityManagerInterface->flush();
 
-        return $this->redirectToRoute("member/members_list");
+        return $this->redirectToRoute("user/member/members_list");
     }
 }
